@@ -14,6 +14,10 @@ export const AppRoutes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'doors',
+        loadChildren: './doors/doors.module#DoorsModule'
+      },
+      {
         path: 'dashboards',
         loadChildren: './dashboards/dashboards.module#DashboardsModule'
       },

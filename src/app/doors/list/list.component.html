@@ -1,0 +1,23 @@
+<!-- ============================================================== -->
+<!-- Image Card row-->
+<!-- ============================================================== -->
+<div fxLayout="row wrap">
+    <!-- Card column -->
+    <div fxFlex.gt-sm="50%" fxFlex="100" *ngFor="let door of doors">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{door.name}}</mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{backendUrl}}/assets/img_storage/doors/models/{{door.model_path}}" alt="{{door.a_key}}">
+            <mat-card-content>
+                <p>
+                </p>
+                <mat-card-actions>
+                    <button mat-raised-button color="accent">КУПИТЬ</button>
+                    от {{door.price}}₽
+                </mat-card-actions>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
