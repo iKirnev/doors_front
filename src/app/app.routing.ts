@@ -10,7 +10,7 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboards/dashboard1',
+        redirectTo: '/doors/stuff/2-laminat',
         pathMatch: 'full'
       },
       {

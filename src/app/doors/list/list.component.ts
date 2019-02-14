@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
+
 
 import { Door } from '../door';
 import { DoorService } from '../door.service';
@@ -14,16 +16,26 @@ export class ListComponent implements OnInit {
   doors: Door[];
   backendUrl: string;
 
-  constructor(private doorService: DoorService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private doorService: DoorService
+  ) {
     this.backendUrl = this.doorService.backendUrl;
+    router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.getDoors();
+      }
+    });
   }
 
   ngOnInit() {
-    this.getDoors();
   }
 
   getDoors(): void {
-    this.doorService.getDoors()
+    const to = this.route.snapshot.paramMap.get('to');
+    const id = this.route.snapshot.paramMap.get('id');
+    this.doorService.getDoors(to, id)
       .subscribe(doors => {this.doors = doors});
   }
 

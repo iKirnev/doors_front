@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Door } from './door';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,23 +11,23 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class DoorService {
-  public backendUrl = environment.backendUrl;
-  private doorsUrl = this.backendUrl + '/api/doors';  // URL to web api
+
+
+export class MenuService {
+  private menuUrl = environment.backendUrl + '/api/doors/menu';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
-  getDoors(to: string, id: string): Observable<Door[]> {
-    const url = `${this.doorsUrl}/${to}/${id}`;
-    return this.http.get<Door[]>(url)
+  getMenu(): Observable<any> {
+    return this.http.get<any>(this.menuUrl)
       .pipe(
-        tap(_ => this.log('fetched doors')),
-        catchError(this.handleError('getDoors', []))
+        tap(_ => this.log('fetched menu')),
+        catchError(this.handleError('getMenu', []))
       );
   }
 
   private log(message: string) {
-    console.log(`DoorService: ${message}`);
+    console.log(`ManuService: ${message}`);
   }
 
   /**

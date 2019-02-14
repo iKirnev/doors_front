@@ -7,7 +7,7 @@ export const DoorsRoutes: Routes = [
     path: '',
     children: [
       {
-        path: 'list',
+        path: ':to/:id',
         component: ListComponent
       }
     ]
