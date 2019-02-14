@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "about": {
+      "company": "О компании",
+      "us": "О нас",
+      "certificate": "Сертификаты",
+      "references": "Благодарственные письма",
+      "feedbacks": "Отзывы покупателей",
+      "partners": "Партнеры"
+    },
+    "products": "Продукция",
+    "galleries": "Галерея",
+    "furniture": "Фурнитура",
+    "price": "Прайс-лист",
+    "contacts": "Контакты",
+    "doors": {
+      "catalog": "Каталог дверей",
+      "fasad": "По отделке",
+      "appointment": "По назначению",
+      "price": "По цене"
+    }
+  },
+  "nav_left": {
+    "catalog": "Каталог",
+    "by_stuff": "По отделке",
+    "by_use": "По назначению",
+    "stuff": {
+      "thermo": "Двери с терморазрывом",
+      "laminat": "Ламинат",
+      "powder": "Порошковое напыление" ,
+      "MDF": "МДФ",
+      "wood": "Массив дерева",
+      "mirror": "С зеркалом",
+      "glass": "Со стеклом",
+      "forg-glass": "С ковкой и стеклом",
+      "stained-glass": "С витражом",
+      "photo": "С фотопечатью",
+      "vinilis-leather": "Винилискожа",
+      "stained": "Стальная",
+      "forg": "C ковкой"
+    },
+    "use":{
+      "apartment": "В квартиру",
+      "entrance": "Подъездные",
+      "vestibule": "Тамбурные",
+      "house": "В частный дом",
+      "cottage": "В коттедж",
+      "parade": "Парадные",
+      "street": "Уличные",
+      "insulated": "Утепленные",
+      "soundproofed": "С шумоизоляцией",
+      "office": "Офисные",
+      "summer-cottage": "Для дачи",
+      "technical": "Технические",
+      "fireproof": "Противопожарные",
+      "latticed": "Решетчатые"
+    },
+    "services": "Сервисы",
+    "doors_calculator": "Онлайн калькулятор"
+  }
+}
