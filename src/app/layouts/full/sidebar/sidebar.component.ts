@@ -63,6 +63,7 @@ export class AppSidebarComponent implements OnDestroy {
         });
         
         this.menu = [
+          { state: 'doors/calculator', name: 'nav_left.doors_calculator', type: 'link', icon: 'business_center' },
           {
             state: '',
             name: 'nav_left.catalog',
