@@ -1,0 +1,26 @@
+<div class="calc-stuff" style="background-color: rgb(255, 255, 255);"
+  (mouseover)='stuffOver=true' (mouseout)='stuffOver= (false || stuff == null)'>
+    <div *ngIf="stuff" class="decor" id="color" 
+      [style.background-image]="getBackground('/assets/images/doors/layouts/colors/' + stuff.name + '/' + color + '.png')" [style.background-size]="layout.size">
+    </div>
+    <div *ngIf="stuff" class="decor" id="constr"
+      [style.background-image]="getBackground('/assets/images/doors/layouts/stuffs/' + stuff.name + '/' + layout.name + '.png')"></div>
+    <div class="thumb text-center" id="type1" 
+      (click)="openDialog()"
+      [style.background-image]="getBackground('/assets/images/doors/layouts/frame/' + (!stuff && 'no/' || '') + layout.name + '.png')">
+      <div>
+        <a [style.display]="stuffOver && 'block' || 'none'" class="chooseFacing" id="outsideFacing">
+          <mat-icon>find_replace</mat-icon>
+          <span>{{'doors.calculator.stuff.choose' | translate}}</span>
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="stuff" class="color text-muted "><label>{{'doors.calculator.stuff.color' | translate}}:</label>
+        <ul><li 
+          *ngFor='let item of [].constructor(10); let id = index'
+          (click)="onColorChange(id + 1)"
+          [style.background-image]="getBackground('/assets/images/doors/layouts/colors/' + stuff.name + '/' + (id+1) + '.png')"
+        ></li></ul>
+    </div>
+</div>

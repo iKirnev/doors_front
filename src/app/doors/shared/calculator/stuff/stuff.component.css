@@ -1,0 +1,69 @@
+.calc-stuff {
+    min-height: 305px;
+    position: relative;
+}
+.calc-stuff .decor {
+    position: absolute;
+    width: 98%;
+    height: 270px;
+    background-position: 50% 50%;
+    background-repeat: repeat-y;
+}
+.calc-stuff #color {
+    z-index: 1;
+}
+.calc-stuff #constr {
+    z-index: 2;
+    opacity: .5;
+}
+.calc-stuff .thumb {
+    border: 0;
+    height: 270px;
+    width: 98%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 3;
+    display: block;
+    text-align: -webkit-center;
+    cursor: pointer;
+}
+.calc-stuff .thumb div {
+    margin-top: 90px;
+    width: 135px;
+    background-color: #ece4e4;
+    border-radius: 2px;
+    border: 0;
+    display: flex;
+}
+.calc-stuff .thumb a {
+    padding: 10px 0 0 4px;
+    margin: 5px;
+}
+.calc-stuff a mat-icon {display: block;}
+.calc-stuff div.color {
+    padding-top: 274px;
+}
+.calc-stuff .color label {
+    float: left;
+    margin-top: 18px;
+}
+
+.calc-stuff .calc label {
+    font-weight: normal;
+    color: #079105;
+    padding-top: 3px;
+}
+
+.calc-stuff .color li{
+  cursor: pointer;
+    width: 25px;
+    height: 25px;
+    float: left;
+    list-style: none;
+    border: 1px grey solid;
+}
+
+/deep/ .mat-card {
+  margin: 7px;
+}

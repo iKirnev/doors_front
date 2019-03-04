@@ -1,0 +1,49 @@
+<button class="close" mat-mini-fab color="primary" (click)="dialogRef.close()"><mat-icon>close</mat-icon></button>
+<h1 mat-dialog-title class="text-center">
+  {{'doors.calculator.stuff.dialog_title' | translate}}
+</h1>
+<div mat-dialog-content>
+  <div class="responsive-table">
+    <mat-table #table [dataSource]="dataSource">
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> {{'doors.calculator.stuff.name' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let stuff"> 
+            <span class="header-label">{{'doors.calculator.stuff.name' | translate}}:</span>
+            {{'doors.calculator.stuff.data.' + stuff.name | translate}} 
+          </mat-cell>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> {{'doors.calculator.stuff.price' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let stuff"> 
+            <span class="header-label">{{'doors.calculator.stuff.price' | translate}}:</span>
+            <mat-icon class="text-muted" *ngFor='let item of [].constructor(stuff.priceRate)'>star</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Design Column -->
+        <ng-container matColumnDef="design">
+          <mat-header-cell *matHeaderCellDef> {{'doors.calculator.stuff.design' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let stuff"> 
+            <span class="header-label">{{'doors.calculator.stuff.design' | translate}}:</span>
+            <mat-icon class="text-muted" *ngFor='let item of [].constructor(stuff.design)'>star</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <!-- Strength Column -->
+        <ng-container matColumnDef="strength">
+          <mat-header-cell *matHeaderCellDef> {{'doors.calculator.stuff.strength' | translate}} </mat-header-cell>
+          <mat-cell *matCellDef="let stuff"> 
+            <span class="header-label">{{'doors.calculator.stuff.strength' | translate}}:</span>
+            <mat-icon class="text-muted" *ngFor='let item of [].constructor(stuff.strength)'>star</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row (click)="onSelectStuff(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

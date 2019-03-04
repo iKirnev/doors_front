@@ -33,9 +33,9 @@ export class ListComponent implements OnInit {
   }
 
   getDoors(): void {
-    const to = this.route.snapshot.paramMap.get('to');
+    const by = this.route.snapshot.paramMap.get('by');
     const id = this.route.snapshot.paramMap.get('id');
-    this.doorService.getDoors(to, id)
+    this.doorService.getDoors(by, id)
       .subscribe(doors => {this.doors = doors});
   }
 

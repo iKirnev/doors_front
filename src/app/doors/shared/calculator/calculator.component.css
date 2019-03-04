@@ -1,0 +1,44 @@
+.mat-card .mat-card-content.dim {
+  padding-bottom: 7px;
+}
+
+.mat-card .mat-card-content.drop {
+  padding-top: 7px;
+  padding-bottom: 0px;
+}
+
+.mat-card .mat-card-content.improvements {
+  padding-top: 7px;
+  padding-bottom: 5px;
+}
+
+.mat-card .mat-card-content.total {
+  padding: 14px 24px;
+}
+.improvements h6{
+  float: left;
+  margin: 13px 10px 0 0;
+}
+
+.mat-card .mat-card-content.layout {
+  min-height: 493px;
+}
+
+/deep/.mat-tab-label, /deep/.mat-tab-label-active{
+  opacity: 1!important;
+  min-width: 0!important;
+  padding: 3px 20px!important;
+  margin: 3px 10px!important;
+}
+
+/deep/.mat-tab-body-wrapper{
+  display: none!important;
+}
+
+.improvements .checkboxes{
+  display: inline-table;
+}
+
+.improvements mat-checkbox{
+  display: block;
+}
