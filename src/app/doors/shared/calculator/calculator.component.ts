@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { StuffComponent, Stuff, STUFF_DATA } from './stuff/stuff.component';
+import { observable, computed } from 'mobx-angular';
 
 @Component({
   selector: 'calculator',
@@ -8,22 +9,22 @@ import { StuffComponent, Stuff, STUFF_DATA } from './stuff/stuff.component';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
-  width: number;
+  @observable width: number;
   widthMin: number = 650;
   widthMax: number = 3000;
-  height: number;
+  @observable height: number;
   heightMin: number = 1600;
   heightMax: number = 3000;
-  openType: string = 'out';
-  layout: Layout;
-  lockUp: number;
-  lockDown: number;
-  install: string;
-  delivery: string;
-  colorOut: number;
-  colorIn: number;
-  stuffOut: Stuff;
-  stuffIn: Stuff;
+  @observable openType: string = 'out';
+  @observable layout: Layout;
+  @observable lockUp: number;
+  @observable lockDown: number;
+  @observable install: string;
+  @observable delivery: string;
+  @observable colorOut: number;
+  @observable colorIn: number;
+  @observable stuffOut: Stuff;
+  @observable stuffIn: Stuff;
   
   constructor(private route: ActivatedRoute, private router: Router,) {
     const q = this.route.snapshot.queryParams;
@@ -79,12 +80,12 @@ export class CalculatorComponent implements OnInit {
     this.improvements.forEach(function (imp) {
       if (imp.checked) qp[imp.symbol] = 1; 
     });
-    this.router.navigate(['.'], { relativeTo: this.route, queryParams: qp});
+    this.router.navigate(['.'], { replaceUrl: true, relativeTo: this.route, queryParams: qp});
   }
 
-  get total() {
-    if (!this.stuffOut || !this.stuffIn) return 0;
+  @computed get total() {
     this.setPath();
+    if (!this.stuffOut || !this.stuffIn) return 0;
     let sq = this.width * this.height;
     if (sq < 1600000) sq = 1600000;
     let price = sq * this.stuffOut.price + sq * this.stuffIn.price //stuff
@@ -107,7 +108,7 @@ export class CalculatorComponent implements OnInit {
     if (this.height > this.heightMax) this.height = this.heightMax;
   }
 
-  improvements: Checkbox[] = [
+  @observable improvements: Checkbox[] = [
     {symbol: 'ph', name: "peephole", checked: false, price: 200},
     {symbol: 'hr', name: "heater", checked: false, price: 800},
     {symbol: 'cr', name: "closer", checked: false, price: 2200},
