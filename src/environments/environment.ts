@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://www.fireprofdoor.ru'
+  backendUrl: 'http://18.196.204.55:3000',
+  imgUrl: 'https://s3.eu-central-1.amazonaws.com/doors-img'
 };

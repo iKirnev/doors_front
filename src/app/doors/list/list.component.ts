@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 
 import { Door } from '../door';
 import { DoorService } from '../door.service';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class ListComponent implements OnInit {
 
   doors: Door[];
   backendUrl: string;
+  imgUrl: string = environment.imgUrl;
 
   constructor(
     private route: ActivatedRoute,
