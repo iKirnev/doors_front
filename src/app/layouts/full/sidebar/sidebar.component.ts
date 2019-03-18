@@ -55,11 +55,11 @@ export class AppSidebarComponent implements OnDestroy {
       .subscribe(data => {
         let stuffs = [];
         data.menu.stuffs.forEach(function(stuff) {
-          stuffs.push({ state: `${stuff.id}-${stuff.name}`, name: `nav_left.stuff.${stuff.name}`, type: 'link' });
+          stuffs.push({ state: `${stuff.name}`, name: `nav_left.stuff.${stuff.name}`, type: 'link' });
         });
         let uses = [];
         data.menu.uses.forEach(function(use) {
-          uses.push({ state: `${use.id}-${use.name}`, name: `nav_left.use.${use.name}`, type: 'link' });
+          uses.push({ state: `${use.name}`, name: `nav_left.use.${use.name}`, type: 'link' });
         });
         
         this.menu = [

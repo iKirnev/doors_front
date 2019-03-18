@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'http://18.196.204.55:3000',
+  apiUrl: 'https://f5nzg036a5.execute-api.eu-central-1.amazonaws.com/default',
   imgUrl: 'https://s3.eu-central-1.amazonaws.com/doors-img'
 };

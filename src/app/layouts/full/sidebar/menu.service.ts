@@ -14,7 +14,7 @@ const httpOptions = {
 
 
 export class MenuService {
-  private menuUrl = environment.backendUrl + '/api/doors/menu';  // URL to web api
+  private menuUrl = environment.apiUrl + '/menu';  // URL to web api
 
   constructor(private http: HttpClient) { }
 

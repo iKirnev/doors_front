@@ -13,13 +13,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DoorService {
-  public backendUrl = environment.backendUrl;
-  private doorsUrl = this.backendUrl + '/api/doors';  // URL to web api
+  public backendUrl = environment.apiUrl;
+  private doorsUrl = this.backendUrl + '/doors';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
-  getDoors(to: string, id: string): Observable<Door[]> {
-    const url = `${this.doorsUrl}/${to}/${id}`;
+  getDoors(by: string, id: string): Observable<Door[]> {
+    const url = `${this.doorsUrl}?by=${by}&val=${id}`;
     return this.http.get<Door[]>(url)
       .pipe(
         tap(_ => this.log('fetched doors')),
