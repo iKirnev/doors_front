@@ -1,79 +1,11 @@
-<!-- ============================================================== -->
-<!-- Notification - style you can find in header.scss -->
-<!-- ============================================================== -->
-<button [matMenuTriggerFor]="notification" mat-icon-button class="m-r-10">
-    <mat-icon>message</mat-icon>
+<a href="tel:+7 (495) 545-74-05" mat-icon-button class="m-r-10" id="phone">
+    +7 (495) 545-74-05
+    <mat-icon>phone</mat-icon>
     <div class="notify">
         <span class="heartbit"></span>
         <span class="point"></span>
     </div>
-</button>
-<mat-menu #notification="matMenu" class="mymegamenu">
-    <div class="mailbox">
-        <ul>
-            <li>
-                <div class="drop-title">Notifications</div>
-            </li>
-            <li>
-                <div class="message-center">
-                    <perfect-scrollbar [config]="config">
-                        <!-- Message -->
-                        <a href="#" *ngFor="let notification of notifications">
-                            <div class="round {{notification.round}}">
-                                <i class="{{notification.icon}}"></i>
-                            </div>
-                            <div class="mail-content">
-                                <h5>{{notification.title}}</h5>
-                                <span class="mail-desc">{{notification.subject}}</span>
-                                <span class="time">{{notification.time}}</span>
-                            </div>
-                        </a>
-
-                    </perfect-scrollbar>
-                </div>
-            </li>
-
-        </ul>
-    </div>
-</mat-menu>
-<!-- ============================================================== -->
-<!-- Profile - style you can find in header.scss -->
-<!-- ============================================================== -->
-<button [matMenuTriggerFor]="message" mat-icon-button class="m-r-10">
-    <mat-icon>email</mat-icon>
-    <div class="notify">
-        <span class="heartbit"></span>
-        <span class="point"></span>
-    </div>
-</button>
-<mat-menu #message="matMenu" class="mymessage">
-    <div class="mailbox">
-        <ul>
-            <li>
-                <div class="drop-title">You have 4 new Mymessages</div>
-            </li>
-            <li>
-                <div class="message-center">
-                    <perfect-scrollbar [config]="config">
-                        <!-- Message -->
-                        <a href="#" *ngFor="let mymessage of mymessages">
-                            <div class="user-img">
-                                <img src="{{mymessage.useravatar}}" alt="user" class="img-circle" width="40">
-                                <span class="profile-status {{mymessage.status}} pull-right"></span>
-                            </div>
-                            <div class="mail-content">
-                                <h5>{{mymessage.from}}</h5>
-                                <span class="mail-desc">{{mymessage.subject}}</span>
-                                <span class="time">{{mymessage.time}}</span>
-                            </div>
-                        </a>
-                        <!-- Message -->
-                    </perfect-scrollbar>
-                </div>
-            </li>
-        </ul>
-    </div>
-</mat-menu>
+</a>
 <!-- ============================================================== -->
 <!-- Profile - style you can find in header.scss -->
 <!-- ============================================================== -->

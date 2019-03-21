@@ -35,7 +35,9 @@ mat-toolbar{
             }
         }
     }
-    
+    .mat-icon-button#phone{
+      width: auto;
+    }
     .app-search{
         display: none;
         width: 100%;
