@@ -16,6 +16,7 @@ import { ListComponent } from './list/list.component';
 import { CalculatorPageComponent } from './calculator/calculator.component';
 import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { StuffComponent, StuffDialogComponent} from './shared/calculator/stuff/stuff.component';
+import { DetailsComponent } from './details/details.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -41,6 +42,7 @@ import { StuffComponent, StuffDialogComponent} from './shared/calculator/stuff/s
     CalculatorComponent,
     StuffComponent,
     StuffDialogComponent,
+    DetailsComponent,
   ]
 })
 export class DoorsModule {}

@@ -59,6 +59,23 @@
     "doors_calculator": "Онлайн калькулятор"
   },
   "doors": {
+    "details": {
+      "size": "Размер короба, мм",
+      "count": "Кол-во",
+      "another": "Другой",
+      "install_cost": "Стоимость установки от 2 000 р.",
+      "build_time": "Срок изготовления 7— 8 дней",
+      "warranty_construction": "Гарантия на конструкцию 10 лет",
+      "warranty_locks": "Гарантия на замки 1 год",
+      "description": "Описание",
+      "simmilar": "Похожие товары"
+    },
+    "button": {
+      "buy":"КУПИТЬ"
+    },
+    "price": {
+      "from": "от"
+    },
     "calculator":{
       "width": "Ширина проёма",
       "height": "Высота проёма",

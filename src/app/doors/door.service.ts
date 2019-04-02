@@ -15,6 +15,7 @@ const httpOptions = {
 export class DoorService {
   public backendUrl = environment.apiUrl;
   private doorsUrl = this.backendUrl + '/doors';  // URL to web api
+  private doorUrl = this.backendUrl + '/door';  // URL to web api
 
   constructor(private http: HttpClient) { }
 
@@ -24,6 +25,15 @@ export class DoorService {
       .pipe(
         tap(_ => this.log('fetched doors')),
         catchError(this.handleError('getDoors', []))
+      );
+  }
+
+  getDoor(id: string): Observable<Door> {
+    const url = `${this.doorUrl}?id=${id}`;
+    return this.http.get<Door>(url)
+      .pipe(
+        tap(_ => this.log('fetched door')),
+        catchError(this.handleError('getDoor', null))
       );
   }
 

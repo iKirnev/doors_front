@@ -27,6 +27,8 @@ export class ListComponent implements OnInit {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.getDoors();
+        const contentContainer = document.querySelector('.mat-sidenav-content') || window;
+        contentContainer.scrollTo(0, 0);
       }
     });
   }
