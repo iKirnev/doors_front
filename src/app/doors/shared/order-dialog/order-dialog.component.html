@@ -1,0 +1,20 @@
+<button class="close" mat-mini-fab color="primary" (click)="dialogRef.close()"><mat-icon>close</mat-icon></button>
+<h1 mat-dialog-title class="text-center">
+  {{'doors.order-dialog.dialog_title' | translate}}
+</h1>
+<div mat-dialog-content>
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="{{'doors.order-dialog.name' | translate}}" [formControl]="nameFormControl">
+      <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <span matPrefix>+7 &nbsp;</span>
+      <input type="tel" matInput placeholder="{{'doors.order-dialog.phone' | translate}}*" [formControl]="phoneFormControl"
+             [errorStateMatcher]="matcher">
+      <mat-icon matSuffix>phone_iphone</mat-icon>
+      <mat-error *ngIf="phoneFormControl.hasError('required')">
+        <strong>{{'doors.order-dialog.required' | translate}}</strong> {{'doors.order-dialog.enter_phone' | translate}}
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" class="m-t-20" (click)="onSend()">{{'doors.order-dialog.order' | translate}}</button>
+</div>

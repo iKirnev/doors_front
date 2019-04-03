@@ -166,7 +166,8 @@
         <mat-card>
           <mat-card-content class="total">
             <h6 class="text-muted m-0">{{'doors.calculator.total' | translate}}: 
-              <span class="text-success m-r-10">{{total}}₽</span><button mat-raised-button color="warn">{{'doors.calculator.order' | translate}}</button></h6>
+              <span class="text-success m-r-10">{{total}}₽</span>
+              <button [disabled]="total==0"  mat-raised-button color="warn" (click)="openOrderDialog()">{{'doors.calculator.order' | translate}}</button></h6>
           </mat-card-content>
         </mat-card>
       </div>

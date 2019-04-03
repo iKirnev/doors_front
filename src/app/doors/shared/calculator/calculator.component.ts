@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource } from '@angular/material';
 import { StuffComponent, Stuff, STUFF_DATA } from './stuff/stuff.component';
 import { observable, computed } from 'mobx-angular';
+import { DoorService } from '../../door.service';
+import { OrderDialogComponent } from '../../shared/order-dialog/order-dialog.component';
 
 @Component({
   selector: 'calculator',
@@ -26,7 +29,12 @@ export class CalculatorComponent implements OnInit {
   @observable stuffOut: Stuff;
   @observable stuffIn: Stuff;
   
-  constructor(private route: ActivatedRoute, private router: Router,) {
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router,
+    private doorService: DoorService,
+    public dialog: MatDialog
+  ) {
     const q = this.route.snapshot.queryParams;
     this.width = +q.w || this.widthMin;
     this.height = +q.h || this.heightMin;
@@ -107,6 +115,7 @@ export class CalculatorComponent implements OnInit {
     if (this.height < this.heightMin) this.height = this.heightMin;
     if (this.height > this.heightMax) this.height = this.heightMax;
   }
+  openOrderDialog(): void {this.dialog.open(OrderDialogComponent);}
 
   @observable improvements: Checkbox[] = [
     {symbol: 'ph', name: "peephole", checked: false, price: 200},

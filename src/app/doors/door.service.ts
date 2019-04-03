@@ -16,6 +16,7 @@ export class DoorService {
   public backendUrl = environment.apiUrl;
   private doorsUrl = this.backendUrl + '/doors';  // URL to web api
   private doorUrl = this.backendUrl + '/door';  // URL to web api
+  private orderUrl = this.backendUrl + '/order';
 
   constructor(private http: HttpClient) { }
 
@@ -34,6 +35,15 @@ export class DoorService {
       .pipe(
         tap(_ => this.log('fetched door')),
         catchError(this.handleError('getDoor', null))
+      );
+  }
+
+  order(name: string, prone: string, path: string): any {
+    const url = `${this.orderUrl}?name=${encodeURIComponent(name)}&prone=${encodeURIComponent(prone)}&path=${encodeURIComponent(path)}`;
+    return this.http.get<any>(url)
+      .pipe(
+        tap(_ => this.log('fetched order')),
+        catchError(this.handleError('order', []))
       );
   }
 

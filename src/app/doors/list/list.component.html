@@ -16,7 +16,7 @@
                 <p>
                 </p>
                 <mat-card-actions>
-                    <button mat-raised-button color="accent">{{'doors.button.buy' | translate}}</button>
+                    <a routerLink="/doors/{{door.id}}" mat-raised-button color="accent">{{'doors.button.details' | translate}}</a>
                     {{'doors.price.from' | translate}} {{door.price}}₽
                 </mat-card-actions>
             </mat-card-content>

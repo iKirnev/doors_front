@@ -17,6 +17,7 @@ import { CalculatorPageComponent } from './calculator/calculator.component';
 import { CalculatorComponent } from './shared/calculator/calculator.component';
 import { StuffComponent, StuffDialogComponent} from './shared/calculator/stuff/stuff.component';
 import { DetailsComponent } from './details/details.component';
+import { OrderDialogComponent } from './shared/order-dialog/order-dialog.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +36,7 @@ import { DetailsComponent } from './details/details.component';
         }
     }),
   ],
-  entryComponents: [StuffDialogComponent],
+  entryComponents: [StuffDialogComponent, OrderDialogComponent],
   declarations: [
     ListComponent,
     CalculatorPageComponent,
@@ -43,6 +44,7 @@ import { DetailsComponent } from './details/details.component';
     StuffComponent,
     StuffDialogComponent,
     DetailsComponent,
+    OrderDialogComponent,
   ]
 })
 export class DoorsModule {}

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource } from '@angular/material';
 
 
 import { Door } from '../door';
 import { DoorService } from '../door.service';
 import { environment } from '../../../environments/environment';
+import { OrderDialogComponent } from '../shared/order-dialog/order-dialog.component';
 
 @Component({
   selector: 'app-details',
@@ -23,7 +25,8 @@ export class DetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private doorService: DoorService
+    private doorService: DoorService,
+    public dialog: MatDialog
   ) {
     this.backendUrl = this.doorService.backendUrl;
     router.events.subscribe((event: Event) => {
@@ -37,7 +40,8 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  openOrderDialog(): void {this.dialog.open(OrderDialogComponent);}
+  
   getDoor(): void {
     const id = this.route.snapshot.paramMap.get('id').split('-')[0];
     this.doorService.getDoor(id)
