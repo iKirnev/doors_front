@@ -1,3 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+/* text color */
+.text-primary, .alert-primary .alert-icon{
+  color: #9c27b0;
+}
+
+.text-danger, .alert-danger .alert-icon{
+  color: #f44336;
+}
+
+.text-info, .alert-info .alert-icon{
+  color: #00bcd4;
+}
+
+.text-warning, .alert-warning .alert-icon{
+  color: #ff9800;
+}
+
+.text-rose, .alert-rose .alert-icon{
+  color: #e91e63;
+}
+
+.text-success, .alert-success .alert-icon{
+  color: #4caf50;
+}
+
     
+/** alert **/
+.alert{
+  border: none;
+  position: relative;
+  padding: 20px 15px;
+  color: #ffffff;
+  border-radius: 3px;
+}
+
+.alert span{
+  font-weight: 100;
+  width: 93%;
+  display: block;
+}
+
+.alert .close{
+  text-shadow: none;
+  opacity: 1;
+  color: #fff;
+  position: relative;
+  top: -6px;
+  outline: none;
+}
+
+.alert .close i{
+  font-size: 11px;
+}
+
+.alert-primary{
+  background-color: #af2cc5;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+}
+
+.alert-info{
+  background-color: #00bcd4;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(0, 188, 212, 0.4);
+}
+
+.alert-rose{
+  background-color: #eb3573;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
+}
+
+.alert-success{
+  background-color: #5cb860;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(76, 175, 80, 0.4);
+}
+
+.alert-warning{
+  background-color: #ffa21a;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+}
+
+.alert-danger{
+  background-color: #f55a4e;
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+}
+
+.alert-with-icon{
+  margin-top: 43px;
+}
+
+.alert-with-icon span{
+  padding-left: 55px;
+}
+
+.alert-with-icon .alert-icon{
+  position: absolute;
+  top: -17px;
+  left: 17px;
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 9px;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
