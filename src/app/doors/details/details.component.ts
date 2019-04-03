@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatTableDataSource } from '@angular/material';
-
+import { observable, computed } from 'mobx-angular';
 
 import { Door } from '../door';
 import { DoorService } from '../door.service';
@@ -19,8 +19,9 @@ export class DetailsComponent implements OnInit {
   door: Door = new Door();
   backendUrl: string;
   imgUrl: string = environment.imgUrl;
-  size: string = '1800x800';
-  openType: string = 'out';
+  @observable size: string;
+  @observable openType: string = 'out';
+  @observable count: number = 1;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,6 +37,31 @@ export class DetailsComponent implements OnInit {
         contentContainer.scrollTo(0, 0);
       }
     });
+    const q = this.route.snapshot.queryParams;
+    this.size = q.sz || this.sizes[0].name;
+    this.openType = q.ot || this.openType;
+    this.count = q.ct || this.count;
+  }
+
+  setPath(): void {
+    const q = this.route.snapshot.queryParams;
+    if (
+      q.sz == this.size &&
+      q.ot == this.openType &&
+      q.ct == this.count
+    ) return;
+    let qp = {
+      sz: this.size,
+      ot: this.openType,
+      ct: this.count
+    };
+    this.router.navigate(['.'], { replaceUrl: true, relativeTo: this.route, queryParams: qp});
+  }
+
+  @computed get total() {
+    this.setPath();
+    let price = +this.door.price * +this.count;
+    return price;
   }
 
   ngOnInit() {
