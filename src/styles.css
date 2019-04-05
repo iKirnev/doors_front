@@ -1,6 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
 
+.topbar.mat-toolbar.mat-primary {background: #475f75;}
+.mat-flat-button.mat-accent:not([disabled]), .mat-raised-button.mat-accent:not([disabled]), .mat-fab.mat-accent:not([disabled]), .mat-mini-fab.mat-accent:not([disabled]) {
+    background-color: #5d6486;
+}
+#snav .mat-nav-list .mat-list-item.selected > .mat-list-item-content > a:not([disabled]) {
+    background: #5d6486;
+}
+/* Absolute Center Spinner */
+.loading-indicator {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading-indicator:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+}
+
 /* text color */
 .text-primary, .alert-primary .alert-icon{
   color: #9c27b0;

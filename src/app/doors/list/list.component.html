@@ -1,13 +1,11 @@
-<!-- ============================================================== -->
-<!-- Image Card row-->
-<!-- ============================================================== -->
+<div *ngIf="doors.length == 0" class="loading-indicator"><mat-spinner></mat-spinner></div>
 <div fxLayout="row wrap">
     <!-- Card column -->
     <div fxFlex.gt-sm="50%" fxFlex="100" *ngFor="let door of doors">
         <mat-card>
             <a routerLink="/doors/{{door.id}}">
               <mat-card-header>
-                  <mat-card-title>{{door.name}}</mat-card-title>
+                  <mat-card-title class="text-muted">{{door.name}}</mat-card-title>
                   <mat-card-subtitle></mat-card-subtitle>
               </mat-card-header>
               <img mat-card-image src="{{imgUrl}}/doors/models/{{door.model_path}}" alt="{{door.a_key}}">

@@ -15,6 +15,8 @@ import { environment } from '../../../environments/environment';
 export class ListComponent implements OnInit {
 
   doors: Door[];
+  id: string;
+  by: string;
   backendUrl: string;
   imgUrl: string = environment.imgUrl;
 
@@ -27,8 +29,6 @@ export class ListComponent implements OnInit {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.getDoors();
-        const contentContainer = document.querySelector('.mat-sidenav-content') || window;
-        contentContainer.scrollTo(0, 0);
       }
     });
   }
@@ -39,6 +39,10 @@ export class ListComponent implements OnInit {
   getDoors(): void {
     const by = this.route.snapshot.paramMap.get('by');
     const id = this.route.snapshot.paramMap.get('id');
+    if (this.id == id && this.by == by) return; //don't reload if url params changed
+    this.id = id;
+    this.by = by;
+    this.doors = []; //scroll to top
     this.doorService.getDoors(by, id)
       .subscribe(doors => {this.doors = doors});
   }

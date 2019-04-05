@@ -1,4 +1,5 @@
-<div fxLayout="row wrap">
+<div *ngIf="!door" class="loading-indicator"><mat-spinner></mat-spinner></div>
+<div *ngIf="door" fxLayout="row wrap">
   <div fxFlex.gt-sm="100" fxFlex="100">
     <mat-card>
       <mat-card-content>
@@ -149,28 +150,28 @@
       </div>
     </div>
     <div fxLayout="row wrap">
-    <!-- Card column -->
-    <ng-container *ngFor="let dr of doors">
-      <div *ngIf="dr.id != door.id" fxFlex.gt-sm="50%" fxFlex="100">
-        <mat-card>
-            <a routerLink="/doors/{{dr.id}}">
-              <mat-card-header>
-                  <mat-card-title>{{dr.name}}</mat-card-title>
-                  <mat-card-subtitle></mat-card-subtitle>
-              </mat-card-header>
-              <img mat-card-image src="{{imgUrl}}/doors/models/{{dr.model_path}}" alt="{{dr.a_key}}">
-            </a>
-            <mat-card-content>
-                <p>
-                </p>
-                <mat-card-actions>
-                    <a routerLink="/doors/{{dr.id}}" mat-raised-button color="accent">{{'doors.button.details' | translate}}</a>
-                    {{'doors.price.from' | translate}} {{dr.price}}₽
-                </mat-card-actions>
-            </mat-card-content>
-        </mat-card>
-      </div>
-    </ng-container>
-</div>
+      <!-- Card column -->
+      <ng-container *ngFor="let dr of doors">
+        <div *ngIf="dr.id != door.id" fxFlex.gt-sm="50%" fxFlex="100">
+          <mat-card>
+              <a routerLink="/doors/{{dr.id}}">
+                <mat-card-header>
+                    <mat-card-title class="text-muted">{{dr.name}}</mat-card-title>
+                    <mat-card-subtitle></mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="{{imgUrl}}/doors/models/{{dr.model_path}}" alt="{{dr.a_key}}">
+              </a>
+              <mat-card-content>
+                  <p>
+                  </p>
+                  <mat-card-actions>
+                      <a routerLink="/doors/{{dr.id}}" mat-raised-button color="accent">{{'doors.button.details' | translate}}</a>
+                      {{'doors.price.from' | translate}} {{dr.price}}₽
+                  </mat-card-actions>
+              </mat-card-content>
+          </mat-card>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<button class="close" mat-mini-fab color="primary" (click)="dialogRef.close()"><mat-icon>close</mat-icon></button>
+<button class="close" mat-mini-fab color="accent" (click)="dialogRef.close()"><mat-icon>close</mat-icon></button>
 <h1 mat-dialog-title class="text-center">
   {{'doors.order-dialog.dialog_title' | translate}}
 </h1>
@@ -16,5 +16,5 @@
         <strong>{{'doors.order-dialog.required' | translate}}</strong> {{'doors.order-dialog.enter_phone' | translate}}
       </mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="m-t-20" (click)="onSend()">{{'doors.order-dialog.order' | translate}}</button>
+    <button mat-raised-button color="accent" class="m-t-20" (click)="onSend()">{{'doors.order-dialog.order' | translate}}</button>
 </div>

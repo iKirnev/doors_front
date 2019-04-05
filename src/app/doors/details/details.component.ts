@@ -16,7 +16,7 @@ import { OrderDialogComponent } from '../shared/order-dialog/order-dialog.compon
 export class DetailsComponent implements OnInit {
 
   doors: Door[];
-  door: Door = new Door();
+  door: Door;
   backendUrl: string;
   imgUrl: string = environment.imgUrl;
   @observable size: string;
@@ -33,8 +33,6 @@ export class DetailsComponent implements OnInit {
     router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.getDoor();
-        const contentContainer = document.querySelector('.mat-sidenav-content') || window;
-        contentContainer.scrollTo(0, 0);
       }
     });
     const q = this.route.snapshot.queryParams;
@@ -70,6 +68,8 @@ export class DetailsComponent implements OnInit {
   
   getDoor(): void {
     const id = this.route.snapshot.paramMap.get('id').split('-')[0];
+    if (this.door && +id == this.door.id) return; //don't reload if url params changed
+    this.door = null; //scroll to top
     this.doorService.getDoor(id)
       .subscribe(door => {
         this.door = door;
@@ -79,6 +79,7 @@ export class DetailsComponent implements OnInit {
   getDoors(door: Door): void {
     const by = 'stuff';
     const id = door.stuffs[0].name;
+    this.doors = [];
     this.doorService.getDoors(by, id)
       .subscribe(doors => {this.doors = doors;});
   }
